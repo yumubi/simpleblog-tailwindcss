@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'miku': '#39c5bb',
         ...blackA,
         ...green,
         ...grass,

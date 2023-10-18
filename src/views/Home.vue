@@ -1,16 +1,26 @@
 <template>
-  <div class="card w-96 bg-base-100 shadow-xl">
-    <figure><img src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/blog-ref/image.ebvay36lb7s.webp" alt="Shoes" /></figure>
-    <div class="card-body">
-      <h2 class="card-title">
-        Shoes!
-        <div class="badge badge-secondary">NEW</div>
-      </h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-      <div class="card-actions justify-end">
-        <div class="badge badge-outline">Fashion</div>
-        <div class="badge badge-outline">Products</div>
+<!--  <div class="w-full md:max-w-4xl">-->
+
+    <div class="card w-full bg-base-100 shadow-xl flex flex-row">
+      <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
+        <AspectRatio :ratio="16 / 9">
+          <img
+              class="h-full w-full object-cover"
+              src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp"
+              alt="article cover"
+          >
+        </AspectRatio>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">文章标题</h2>
+        <p>If a dog chews shoes whose shoes does he choose?</p>
       </div>
     </div>
-  </div>
+<!--  </div>-->
+
+
+
 </template>
+<script setup>
+import {AspectRatio} from "radix-vue";
+</script>
