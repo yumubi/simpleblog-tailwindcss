@@ -6,17 +6,22 @@ const routes = [
     meta: {
       title: "首页",
     },
-    component: () => import("@/views/Home.vue"),
+    component: () => import("@/views/home.vue"),
   },
 
   // {
   //   path: "/member",
   //   component: () => import("../views/member.vue"),
   // },
-  // {
-  //   path: "/about",
-  //   component: () => import("../views/about.vue"),
-  // },
+  {
+    path: "/about",
+    component: () => import("../views/about.vue"),
+  },
+
+  {
+    path: "/detail",
+    component: () => import("../views/Detail.vue"),
+  },
 
 
 
@@ -56,15 +61,15 @@ const routes = [
   //   },
   //   component: () => import("@/views/403.vue"),
   // },
-  // // 404
-  // {
-  //   path: "/404",
-  //   name: "404",
-  //   meta: {
-  //     title: "404",
-  //   },
-  //   component: () => import("@/views/404.vue"),
-  // },
+  // 404
+  {
+    path: "/404",
+    name: "404",
+    meta: {
+      title: "404",
+    },
+    component: () => import("@/views/404.vue"),
+  },
   // // 500
   // {
   //   path: "/500",
