@@ -36,7 +36,7 @@ const hoverState = ref(false)
             rel="noreferrer noopener"
         >
           <img
-              class="block h-[30px] w-[30px] rounded-full"
+              class="block h-[48px] w-[48px] rounded-full"
               src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/image.4v93impigvs0.png"
               alt="avatar"
           >
@@ -69,13 +69,13 @@ const hoverState = ref(false)
   <div class="divider my-0"/>
 
 
-  <main class="relative flex min-h-screen flex-row flex-wrap justify-center mx-auto">
+  <main class="relative flex min-h-screen flex-row flex-wrap justify-center mx-auto bg-slate-100">
      <div class="mx-2.5 w-full md:max-w-4xl">
        <router-view />
      </div>
 
-      <div class="hidden xl:flex flex-col items-center gap-4 max-w-xs bg-white mx-2.5 px-5 py-2 mb-2 rounded-box dark:bg-base-200 ">
-        <div class="bg-slate-100 w-full flex flex-col dark:bg-base-200">
+      <div class="hidden xl:flex flex-col items-center gap-4 max-w-xs bg-white mx-2.5 mt-3 px-5 py-2 mb-2 rounded-box ">
+        <div class="bg-slate-100 w-full flex flex-col dark:bg-white">
           <div class="avatar mt-2 mx-auto">
             <div class="w-20 rounded-full">
               <img :src="avatarImg"  alt="avatar"/>
