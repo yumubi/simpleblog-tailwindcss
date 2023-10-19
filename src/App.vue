@@ -66,10 +66,9 @@ const hoverState = ref(false)
     </div>
   </div>
 
-  <div class="divider my-0"/>
-
 
   <main class="flex min-h-screen flex-row flex-wrap justify-center mx-auto bg-slate-100 dark:bg-base-100">
+
     <div class="mx-2.5 w-full md:max-w-4xl">
        <router-view />
      </div>
