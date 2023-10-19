@@ -43,15 +43,15 @@ const routes = [
   //   },
   //   component: () => import("@/views/Setting.vue"),
   // },
-  // // 测试页面
-  // {
-  //   path: "/test",
-  //   name: "test",
-  //   meta: {
-  //     title: "test",
-  //   },
-  //   component: () => import("@/views/Test.vue"),
-  // },
+  // 测试页面
+  {
+    path: "/test",
+    name: "test",
+    meta: {
+      title: "test",
+    },
+    component: () => import("@/views/Test.vue"),
+  },
   // // 403
   // {
   //   path: "/403",

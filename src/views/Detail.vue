@@ -141,42 +141,58 @@ const handbook = ref("#### how to use mavonEditor in nuxt.js")
 </script>
 
 <template>
-  <div class="flex flex-col w-full rounded-full gap-3 py-3 divide-y divide-miku divide-dashed dark:bg-base-200">
+  <div class="flex flex-col w-full gap-3 py-3 divide-y divide-miku divide-dashed dark:bg-base-200">
 
-    <div class="w-full rounded-full flex flex-col">
+    <div class="flex-1 bg-white p-6 rounded-sm">
+      <div class="text-center text-black">
+        <h1 class="font-bold text-3xl">{{authors[0].article[0].title}}</h1>
+      </div>
+      <div class="mt-4 mx-2.5">
+        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
+        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
+        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
+        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
+      </div>
+    </div>
+
+    <div class="w-full rounded-lg shadow-xl flex flex-col">
+
+
         <div>
+
           <mavon-editor v-model="authors[0].article[0].content" :subfield="false" :defaultOpen="'preview'" :toolbarsFlag="false"
                         :boxShadow="false" :transition="false" />
         </div>
-  </div>
+    </div>
 
     <div class="block mt-2 py-5 ">
       <span class="w-full px-3 py-1.5 text-md text-white bg-miku rounded-full"># 二次元</span>
     </div>
 
-<div class="grid grid-cols-2">
-  <div class="hero" style="background-image: url(https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp);">
-    <div class="hero-overlay bg-opacity-60 hover:bg-opacity-10"></div>
-    <div class="hero-content text-center text-neutral-content flex flex-col">
-      <div><p class="font-bold">前一篇</p></div>
-      <div>
-        <p class="mb-5">SpringMVC</p>
+
+    <div class="grid grid-cols-2">
+      <div class="hero" style="background-image: url(https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp);">
+        <div class="hero-overlay bg-opacity-60 hover:bg-opacity-10"></div>
+        <div class="hero-content text-center text-neutral-content flex flex-col">
+          <div><p class="font-bold">前一篇</p></div>
+          <div>
+            <p class="mb-5">SpringMVC</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero" style="background-image: url(https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp);">
+        <div class="hero-overlay bg-opacity-60 hover:bg-opacity-10"></div>
+        <div class="hero-content text-center text-neutral-content flex flex-col">
+          <div><p>前一篇</p></div>
+          <div>
+            <p class="mb-5">SpringMVC</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="hero" style="background-image: url(https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp);">
-    <div class="hero-overlay bg-opacity-60 hover:bg-opacity-10"></div>
-    <div class="hero-content text-center text-neutral-content flex flex-col">
-      <div><p>前一篇</p></div>
-      <div>
-        <p class="mb-5">SpringMVC</p>
-      </div>
-    </div>
   </div>
-</div>
-
-    </div>
 
 </template>
 
