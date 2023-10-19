@@ -69,20 +69,20 @@ const hoverState = ref(false)
   <div class="divider my-0"/>
 
 
-  <main class="relative flex min-h-screen flex-row flex-wrap justify-center mx-auto bg-slate-100">
-     <div class="mx-2.5 w-full md:max-w-4xl">
+  <main class="flex min-h-screen flex-row flex-wrap justify-center mx-auto bg-slate-100 dark:bg-base-100">
+    <div class="mx-2.5 w-full md:max-w-4xl">
        <router-view />
      </div>
 
-      <div class="hidden xl:flex flex-col items-center gap-4 max-w-xs bg-white mx-2.5 mt-3 px-5 py-2 mb-2 rounded-box ">
-        <div class="bg-slate-100 w-full flex flex-col dark:bg-white">
+    <div class="hidden xl:flex flex-col items-center gap-4 max-w-xs bg-white mx-2.5 mt-3 px-5 py-2 mb-2 rounded-box ">
+        <div class="w-full flex flex-col dark:bg-white">
           <div class="avatar mt-2 mx-auto">
             <div class="w-20 rounded-full">
               <img :src="avatarImg"  alt="avatar"/>
             </div>
           </div>
           <div class="desc flex flex-col items-center">
-            <div class="text-gray-700 dark:text-white ">初音未来</div>
+            <div class="text-miku font-bold">初音未来</div>
             <div class="text-sm font-light text-gray-400 dark:text-gray-300">既见未来,为何不拜</div>
           </div>
         </div>
@@ -123,7 +123,10 @@ const hoverState = ref(false)
           </div>
         </div>
 
-      </div>
+    </div>
+
+
+
 
   </main>
 

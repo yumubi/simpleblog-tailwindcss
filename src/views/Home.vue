@@ -1,8 +1,8 @@
 <template>
 <!--  <div class="w-full md:max-w-4xl">-->
 
-  <div class="flex flex-col gap-3 py-3 dark:bg-white">
-    <div class="card w-full bg-base-100 shadow-xl flex flex-col sm:flex-row dark:bg-white">
+  <div class="flex flex-col gap-3 py-3">
+    <div class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white">
       <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
         <AspectRatio :ratio="16 / 9">
           <img
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="card w-full bg-base-100 shadow-xl flex flex-col sm:flex-row dark:bg-white">
+    <div class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white">
       <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
         <AspectRatio :ratio="16 / 9">
           <img
