@@ -1,5 +1,6 @@
 <script setup>
 import {ref} from "vue";
+import {useRoute} from "vue-router";
 
 const author = ref("")
 const curr = ref("")
@@ -138,6 +139,9 @@ PRIMARY KEY(\`id\`)
 const pageSize = ref(16)
 const currPage = ref(1)
 const handbook = ref("#### how to use mavonEditor in nuxt.js")
+
+const postId = useRoute().params.id
+console.log(useRoute().params.id)
 </script>
 
 <template>
@@ -145,7 +149,7 @@ const handbook = ref("#### how to use mavonEditor in nuxt.js")
 
     <div class="flex-1 bg-white p-6 rounded-sm">
       <div class="text-center text-black">
-        <h1 class="font-bold text-3xl">{{authors[0].article[0].title}}</h1>
+        <h1 class="font-bold text-3xl">{{postId}}---{{authors[0].article[0].title}}</h1>
       </div>
       <div class="mt-4 mx-2.5">
         <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>

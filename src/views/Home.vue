@@ -1,49 +1,36 @@
 <template>
 <!--  <div class="w-full md:max-w-4xl">-->
 
-  <div class="flex flex-col gap-3 py-3">
-    <div class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white">
-      <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
-        <AspectRatio :ratio="16 / 9">
-          <img
-              class="h-full w-full object-cover"
-              src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp"
-              alt="article cover"
-          >
-        </AspectRatio>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title">文章标题</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="flex flex-col items-end">
-          <div class="flex max-[991px]:flex-col items-start lg:items-center">
-            <p class="text-[#636262] text-sm sm:text-sm">6 mins read</p>
+  <!-- todo  分页逻辑 -->
+  <div class="flex flex-col gap-6 py-3">
+    <template v-for="(item, index) in posts" :key="index">
+      <router-link class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white"
+      :to="{
+        name: 'detail',
+        params: {
+          id: item.id
+        }
+      }">
+        <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
+          <AspectRatio :ratio="16 / 9" class="hover:opacity-90">
+            <img
+                class="h-full w-full object-cover"
+                :src="covers[index]?.imgurl"
+                alt="article cover"
+            >
+          </AspectRatio>
+        </div>
+        <div class="card-body hover:bg-slate-50 rounded-b-box">
+          <h2 class="card-title">{{item.source.length > 23 ? item.source.substring(20).concat("...") : item.source}}</h2>
+          <p>{{item.vhan.length > 33 ? item.vhan.substring(0, 30).concat("...") : item.vhan}}</p>
+          <div class="flex flex-col items-end">
+            <div class="flex max-[991px]:flex-col items-start lg:items-center">
+              <p class="text-[#636262] text-sm sm:text-sm">6 mins read</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white">
-      <div class="shadow-blackA7 w-full sm:w-[300px] overflow-hidden rounded-md shadow-[0_2px_10px]">
-        <AspectRatio :ratio="16 / 9">
-          <img
-              class="h-full w-full object-cover"
-              src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp"
-              alt="article cover"
-          >
-        </AspectRatio>
-      </div>
-      <div class="card-body">
-        <h2 class="card-title">文章标题</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="flex flex-col items-end">
-          <div class="flex max-[991px]:flex-col items-start lg:items-center">
-            <p class="text-[#636262] text-sm sm:text-sm">6 mins read</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+      </router-link>
+    </template>
   </div>
 
 
@@ -52,7 +39,7 @@
 
 
 <div class="flex flex-row justify-center text-black dark:text-white">
-  <PaginationRoot :total="100" :sibling-count="1" show-edges :default-page="2">
+  <PaginationRoot :total="9" :items-per-page="3" :sibling-count="1" show-edges :default-page="1">
     <PaginationList v-slot="{ items }" class="flex items-center gap-1">
       <PaginationFirst class="w-9 h-9  flex items-center justify-center  disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
         <Icon icon="radix-icons:double-arrow-left" />
@@ -80,4 +67,125 @@
 </template>
 <script setup>
 import {AspectRatio, PaginationRoot} from "radix-vue";
+import axios from "axios";
+import {computed, onMounted, ref} from "vue";
+
+// const posts = ref([
+//   {
+//       creator: "测试",
+//       post: {
+//         id: 100,
+//         source: "乔布斯",
+//         content: "全人类感谢你!!!",
+//         cover: ""
+//       }
+//   },
+//   {
+//     creator: "测测你的",
+//     post: {
+//       id: 200,
+//       source: "麦克阿瑟",
+//       content: "给他一个支点,他能整个地球",
+//       cover: ""
+//     }
+//   }
+//
+// ])
+
+
+const posts = ref([{
+  id: 200,
+  vhan: "v-model收集的是被选中的多个复选框的值时，默认将收集到的多个值放到一个数组中保存。所以v-model绑定的变量需要是一个数组。默认没有一个被选中，则变量对应的是一个[]空数组。\n" +
+      "收集时，要知道每个复选框的值，则需要在复选框上添加vaule属性。",
+  source: "测测你的",
+  creator: "1000"
+}])
+
+const covers = ref([{
+  imgurl: "https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/banner.59r933wrxbs0.webp",
+}])
+
+
+
+const pageSize = ref(3)
+
+const currPage = ref(1)
+
+// const title = computed(() => {
+//   if(post.value.source.length > 23) return post.value.source.substring(0, 20) + "..."
+//   return post.value.source
+// })
+//
+// const contents = computed(() => {
+//   if(post.value.vhan.length > 36) return post.value.vhan.substring(0, 30) + "..."
+//   return post.value.vhan
+// })
+
+// const showPosts = computed(() => {
+//     posts.value.map(p => {
+//       return {
+//         ...p,
+//         source: p.source.length > 20 ? p.source.substring(0, 20).concat("...") : p.source,
+//         vhan: p.vhan.length > 30 ? p.vhan.substring(0, 30).concat("...") : p.vhan,
+//       }
+//     })
+// })
+
+
+onMounted(() => {
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchCover()
+  fetchCover()
+  fetchCover()
+  fetchCover()
+  fetchCover()
+  fetchCover()
+})
+
+function fetchPosts() {
+  axios
+      .get("https://api.vvhan.com/api/ian?cl=ac&type=json")
+      .then((res) => {
+        // posts.value = res.data.data
+        posts.value.push(res.data.data)
+
+      })
+      .catch(err => {
+        console.log(err)
+      })
+}
+
+function fetchCover() {
+  axios
+      .get("https://api.vvhan.com/api/acgimg?type=json")
+      .then(res => {
+        covers.value.push(res.data)
+      })
+      .catch(err => {
+        console.log("img loading error------->" + err)
+      })
+}
+
+function viewUrl(url) {
+  window.open(url);
+}
+
+
+function handlePosts(posts) {
+  posts.value.forEach(p => {
+    if(p.source.length > 20) return p.source.concat("...")
+
+    if(p.vhan.length > 30) return p.vhan.concat("...")
+  })
+  return posts
+}
+
+
+
+
 </script>
