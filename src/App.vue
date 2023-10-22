@@ -20,10 +20,10 @@ const hoverState = ref(false)
       <a class="btn btn-ghost normal-case text-xl">Blog</a>
     </div>
     <div class="flex-1 justify-center menu menu-horizontal px-1 space-x-1 text-lg font-extrabold md:space-x-14">
-      <li><a>首页</a></li>
-      <li><a>归档</a></li>
-      <li><a>关于</a></li>
-      <li><a>友链</a></li>
+      <li><router-link to="/">首页</router-link></li>
+      <li><router-link to="/test">归档</router-link></li>
+      <li><router-link to="about">关于</router-link></li>
+      <li><router-link to="links">友链</router-link></li>
     </div>
 
 

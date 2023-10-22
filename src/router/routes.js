@@ -6,7 +6,7 @@ const routes = [
     meta: {
       title: "首页",
     },
-    component: () => import("@/views/home.vue"),
+    component: () => import("@/views/Home.vue"),
   },
 
   // {
@@ -15,12 +15,18 @@ const routes = [
   // },
   {
     path: "/about",
-    component: () => import("../views/about.vue"),
+    component: () => import("@/views/About.vue"),
   },
 
   {
-    path: "/detail",
-    component: () => import("../views/Detail.vue"),
+    name: "detail",
+    path: "/detail/:id",
+    component: () => import("@/views/Detail.vue"),
+  },
+
+  {
+    path: "/links",
+    component: () => import("@/views/ExtraLink.vue"),
   },
 
 
