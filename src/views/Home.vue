@@ -1,9 +1,8 @@
 <template>
 <!--  <div class="w-full md:max-w-4xl">-->
 
-  <!-- todo  分页逻辑 -->
   <div class="flex flex-col gap-6 py-3">
-    <template v-for="(item, index) in posts" :key="index">
+    <template v-for="(item, index) in pagedPost" :key="index">
       <router-link class="card w-full shadow-xl flex flex-col text-black sm:flex-row dark:bg-white"
       :to="{
         name: 'detail',
@@ -39,27 +38,36 @@
 
 
 <div class="flex flex-row justify-center text-black dark:text-white">
-  <PaginationRoot :total="9" :items-per-page="3" :sibling-count="1" show-edges :default-page="1">
+  <PaginationRoot :total="posts.length" :items-per-page="pageSize"
+                  v-model:page="currPage"
+                  :sibling-count="1"
+                  show-edges
+                  :default-page="1">
     <PaginationList v-slot="{ items }" class="flex items-center gap-1">
-      <PaginationFirst class="w-9 h-9  flex items-center justify-center  disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
+
+      <PaginationFirst class="w-9 h-9 flex items-center justify-center  disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
         <Icon icon="radix-icons:double-arrow-left" />
       </PaginationFirst>
       <PaginationPrev class="w-9 h-9  flex items-center justify-center mr-4  disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
         <Icon icon="radix-icons:chevron-left" />
       </PaginationPrev>
+
+
       <template v-for="(page, index) in items">
-        <PaginationListItem v-if="page.type === 'page'" :key="index" class="w-9 h-9 border rounded  data-[selected]:bg-slate-200 data-[selected]:text-blackA11 hover:bg-white/10 transition focus-within:outline focus-within:outline-1 focus-within:outline-offset-1" :value="page.value">
+        <PaginationListItem v-if="page.type === 'page'" :key="index" class="w-9 h-9 border rounded  data-[selected]:bg-slate-200 data-[selected]:font-bold font-mono hover:bg-white/10 transition " :value="page.value">
           {{ page.value }}
         </PaginationListItem>
         <PaginationEllipsis v-else :key="page.type" :index="index" class="w-9 h-9 flex items-center justify-center">
           &#8230;
         </PaginationEllipsis>
       </template>
+
+
       <PaginationNext class="w-9 h-9  flex items-center justify-center  ml-4 disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
         <Icon icon="radix-icons:chevron-right" />
       </PaginationNext>
-      <PaginationLast class="w-9 h-9  flex items-center justify-center disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
-        <Icon icon="radix-icons:double-arrow-right" />
+      <PaginationLast class=" w-9 h-9 flex items-center justify-center disabled:opacity-50  focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded">
+        <Icon icon="radix-icons:double-arrow-right"/>
       </PaginationLast>
     </PaginationList>
   </PaginationRoot>
@@ -69,6 +77,7 @@
 import {AspectRatio, PaginationRoot} from "radix-vue";
 import axios from "axios";
 import {computed, onMounted, ref} from "vue";
+import {Icon} from "@iconify/vue";
 
 // const posts = ref([
 //   {
@@ -111,6 +120,8 @@ const pageSize = ref(3)
 
 const currPage = ref(1)
 
+
+
 // const title = computed(() => {
 //   if(post.value.source.length > 23) return post.value.source.substring(0, 20) + "..."
 //   return post.value.source
@@ -132,6 +143,17 @@ const currPage = ref(1)
 // })
 
 
+const pagedPost = computed(() => {
+  return posts.value
+      .slice((currPage.value - 1) * pageSize.value,
+      currPage.value * pageSize.value
+      )
+      // .reduce((prev, cur) => {
+      //
+      // })
+})
+
+
 onMounted(() => {
   fetchPosts()
   fetchPosts()
@@ -139,13 +161,26 @@ onMounted(() => {
   fetchPosts()
   fetchPosts()
   fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
+  fetchPosts()
   fetchCover()
   fetchCover()
   fetchCover()
-  fetchCover()
-  fetchCover()
-  fetchCover()
+  // fetchCover()
+  // fetchCover()
+  // fetchCover()
 })
+
+
 
 function fetchPosts() {
   axios
@@ -176,14 +211,15 @@ function viewUrl(url) {
 }
 
 
-function handlePosts(posts) {
-  posts.value.forEach(p => {
-    if(p.source.length > 20) return p.source.concat("...")
 
-    if(p.vhan.length > 30) return p.vhan.concat("...")
-  })
-  return posts
-}
+// function handlePosts(posts) {
+//   posts.value.forEach(p => {
+//     if(p.source.length > 20) return p.source.concat("...")
+//
+//     if(p.vhan.length > 30) return p.vhan.concat("...")
+//   })
+//   return posts
+// }
 
 
 

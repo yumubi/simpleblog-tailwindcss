@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AspectRatio: typeof import('radix-vue')['AspectRatio']
     PaginationEllipsis: typeof import('radix-vue')['PaginationEllipsis']
     PaginationFirst: typeof import('radix-vue')['PaginationFirst']
     PaginationLast: typeof import('radix-vue')['PaginationLast']
@@ -15,7 +14,6 @@ declare module 'vue' {
     PaginationListItem: typeof import('radix-vue')['PaginationListItem']
     PaginationNext: typeof import('radix-vue')['PaginationNext']
     PaginationPrev: typeof import('radix-vue')['PaginationPrev']
-    PaginationRoot: typeof import('radix-vue')['PaginationRoot']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

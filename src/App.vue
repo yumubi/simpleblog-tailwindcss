@@ -1,6 +1,5 @@
 <script setup>
 import {
-  AspectRatio, AvatarImage, AvatarRoot,
   HoverCardArrow,
   HoverCardContent,
   HoverCardPortal,
