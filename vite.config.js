@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import Component from 'unplugin-vue-components/vite'
 import RadixVueResolver from 'radix-vue/resolver'
 import { fileURLToPath, URL } from "node:url";
@@ -22,6 +23,7 @@ export default defineConfig({
 
 
   plugins: [
+    VueDevTools(),  // <-- here
     vue(),
     Component({
       dts: true,
