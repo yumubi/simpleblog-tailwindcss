@@ -18,12 +18,12 @@ const hoverState = ref(false)
 <template>
 
   <div class="navbar bg-base-100 flex flex-col sm:flex-row">
-    <div class="">
+    <div class="profile">
       <a class="btn btn-ghost normal-case text-xl">Blog</a>
     </div>
     <div class="flex-1 justify-center menu menu-horizontal px-1 space-x-1 text-lg font-extrabold md:space-x-14">
       <li><router-link to="/">首页</router-link></li>
-      <li><router-link to="/test">归档</router-link></li>
+      <li><router-link to="/archive">归档</router-link></li>
       <li><router-link to="about">关于</router-link></li>
       <li><router-link to="links">友链</router-link></li>
     </div>
@@ -45,7 +45,11 @@ const hoverState = ref(false)
         </HoverCardTrigger>
         <HoverCardPortal>
           <HoverCardContent
-              class="data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px] rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] data-[state=open]:transition-all"
+              class="data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade
+              data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[300px]
+              rounded-md bg-white p-5 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
+              data-[state=open]:transition-all
+              z-10"
               :side-offset="5"
           >
             <div class="flex flex-col gap-[5px]">
@@ -55,10 +59,14 @@ const hoverState = ref(false)
                     src="https://cdn.jsdelivr.net/gh/yumubi/Image-hosting-service@main/covers/image.4v93impigvs0.png"
                     alt="avatar"
                 >
-                <div class="text-sm font-normal mb-2">Stellar Nolan</div>
+                <div class="text-sm font-normal mb-2 username">Stellar Nolan</div>
               </div>
-              <div class="mt-1 ml-2 text-lg font-mono">Settings</div>
-              <div class="mt-1 ml-2 text-lg font-mono">Sign out</div>
+              <div class="profile">
+                <div class="mt-1 ml-2 text-lg font-mono">Settings</div>
+              </div>
+              <div class="profile">
+                <div class="mt-1 ml-2 text-lg font-mono">Sign out</div>
+              </div>
             </div>
             <HoverCardArrow class="fill-cyan-200" size="8" />
           </HoverCardContent>
@@ -71,7 +79,7 @@ const hoverState = ref(false)
 
   <main class="flex min-h-screen flex-row flex-wrap justify-center mx-auto bg-slate-100 dark:bg-base-100">
 
-    <div class="mx-2.5 w-full md:max-w-4xl">
+    <div class="mx-2.5 p-3 w-full md:max-w-4xl">
        <router-view />
      </div>
 
@@ -142,5 +150,11 @@ const hoverState = ref(false)
 </template>
 
 <style scoped>
+  .profile:hover {
+    @apply border-gray-300 border-y bg-slate-50
+  }
+  .username:hover {
+    @apply border-b border-indigo-500 animate-pulse
+  }
 
 </style>

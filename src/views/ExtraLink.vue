@@ -9,7 +9,7 @@ import blogAvatar from "@/assets/miku.png"
   <section>
     <!-- Container -->
     <div class="py-16 md:py-24 lg:py-32 mx-auto w-full max-w-7xl px-5 md:px-10"><!-- Component -->
-      <div class="relative pt-40">
+      <div class="relative pt-[64px]">
         <div class="sticky bottom-60 z-[3] -mt-48 mb-36 bg-white py-10 rounded-xl px-5 sm:px-12">
           <div class="grid items-center grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
             <div class="flex-col flex h-full justify-between max-[991px]:[grid-area:1/1/2/2] max-w-[720px] lg:max-w-[720px]">

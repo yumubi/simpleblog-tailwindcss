@@ -150,11 +150,9 @@ console.log(useRoute().params.id)
     <div class="flex-1 bg-white p-6 rounded-sm">
       <div class="text-center text-black">
         <h1 class="font-bold text-3xl">{{postId}}---{{authors[0].article[0].title}}</h1>
+<!--        <h1 class="font-bold text-3xl">测试很长很长很长很长很长很长很长长标题</h1>-->
       </div>
-      <div class="mt-4 mx-2.5">
-        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
-        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
-        <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
+      <div class="mt-4 mx-2.5 flex flex-wrap gap-1">
         <span class="bg-miku rounded-xl text-white  px-3 py-1.5 text-md mr-2.5"># Notes</span>
       </div>
     </div>
@@ -169,8 +167,11 @@ console.log(useRoute().params.id)
         </div>
     </div>
 
-    <div class="block mt-2 py-5 ">
-      <span class="w-full px-3 py-1.5 text-md text-white bg-miku rounded-full"># 二次元</span>
+    <div class="mt-2 mx-2 py-5 flex flex-wrap gap-2">
+      <span class=" px-3 py-1.5 text-md text-white bg-miku rounded-full"># 二次元</span>
+      <span class=" px-3 py-1.5 text-md text-white bg-miku rounded-full"># 二次元</span>
+      <span class=" px-3 py-1.5 text-md text-white bg-miku rounded-full"># 二次元</span>
+
     </div>
 
 

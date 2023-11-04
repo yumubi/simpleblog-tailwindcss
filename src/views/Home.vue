@@ -122,27 +122,6 @@ const currPage = ref(1)
 
 
 
-// const title = computed(() => {
-//   if(post.value.source.length > 23) return post.value.source.substring(0, 20) + "..."
-//   return post.value.source
-// })
-//
-// const contents = computed(() => {
-//   if(post.value.vhan.length > 36) return post.value.vhan.substring(0, 30) + "..."
-//   return post.value.vhan
-// })
-
-// const showPosts = computed(() => {
-//     posts.value.map(p => {
-//       return {
-//         ...p,
-//         source: p.source.length > 20 ? p.source.substring(0, 20).concat("...") : p.source,
-//         vhan: p.vhan.length > 30 ? p.vhan.substring(0, 30).concat("...") : p.vhan,
-//       }
-//     })
-// })
-
-
 const pagedPost = computed(() => {
   return posts.value
       .slice((currPage.value - 1) * pageSize.value,
@@ -168,9 +147,6 @@ onMounted(() => {
   fetchCover()
   fetchCover()
   fetchCover()
-  // fetchCover()
-  // fetchCover()
-  // fetchCover()
 })
 
 

@@ -1,127 +1,49 @@
 import { defineStore } from "pinia";
+import {ref} from "vue";
 
-export const mainStore = defineStore("main", {
-  state: () => {
+export const useMainStore
+    = defineStore('main', () => {
+    const customBarrage = ref([
+        {
+            avatar:
+                'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIADIAMgMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAFBAYBAgMAB//aAAgBAQAAAAD7HU4ObhMC3AnlYvY8ISwA+6WDOd4/RA96FVeF66BOVWB3TsAOgZC27wv/xAAYAQEBAQEBAAAAAAAAAAAAAAACAwQAAf/aAAgBAhAAAAC3sw8uyRDQPV//xAAYAQADAQEAAAAAAAAAAAAAAAAAAgMBBP/aAAgBAxAAAACQ7LfmoUTNvFf/xAA0EAACAQMBBAcHAwUAAAAAAAABAgMABBESBRMxQRAhIjJRYbEUIzRCUnOBM3KSU2KRoeH/2gAIAQEAAT8AmmSCJpHOAoq6vZp8lmITkgonSQCMZxikkdGDxsVbxFbK2l7TGUkwHQfy6Ln4if7jetbcdglvH9TFv40hD71CGzlQpAyACRkt4VcxojxOdIj06GzwA5VKkilGUdjUcNxD9XlwI5g1Bfm0u4nC5UHDeYNWu0LS4B3D6mHHIwaufiJ/uN61tm6Et6GPCIbv8mtqi4gtrFkzjeuxIGRq+TP4orI1jpK+8MHAfVprYcM8kVysmoIGiwG8UfVgVcwh1ecDGiYcvlNWk7W9zDKucqwyPEVOczzfvb1q/wBkXWqR4Sja8nDHGCajAEagHIAx/jourmK0haaV9KrWyrFZLRZJ07MqNhc8Q3M/irfZFlaOGQF2HzOc1cACeYD+o3r0XptYEJKAyMx06TgsxOaupr+MhkIQk6TlfPlkVNCIxBc3A9onLjRG/WtWV1BPFlRp09TpzBHLoufiJ/uN69G05JLxt8C2ksQpTiAMHIq0mQz6HnMnZwurBwBRhKTLLK5Y6Oz/AGf9qwla3u4TykBRh/sdFx8RN9xvWpri43Unv5O6fmNSSSCHGtsb0DGfKrFm3zdZ7o9RUskhMnbbu+NLJJrh7bfqJz869onxjfSY/callk3knvG7x51//8QAIxEAAgEEAQMFAAAAAAAAAAAAAQIRAAMSMRAEIXETMjNBUf/aAAgBAgEBPwBMUTNv3tSdQrgZDYpwMmx0N8PdFv0iBMAyKS4QroF99JcxDhhMntwxgUCoJIER90jZCeG2PBpvjNWtHzx//8QAIBEAAgICAgIDAAAAAAAAAAAAAQIAERASAyEyM0GBkf/aAAgBAwEBPwBtmbURuErdRb1W/nCIW3vqMgJVr8YyWVIyvYG/5CKwJze36jY//9k=',
+            name: '美绪',
+            text: '马什么梅？',
+        },
+        {
+            avatar:
+                'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIADIAMgMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAABQIDBAEGB//aAAgBAQAAAAD65hzG3WLcATfCbHYQ9IY0uiEfRkU1IOr+RoUG1ornWj7Y6//EABgBAQADAQAAAAAAAAAAAAAAAAQAAgUD/9oACAECEAAAACEf3IJba51tGDNq/wD/xAAYAQEAAwEAAAAAAAAAAAAAAAAEAQMFAv/aAAgBAxAAAABSg0MWQdj+c6VozP/EAC0QAAIBAwMBBgUFAAAAAAAAAAECEQADBBASMUEiUVJhcZEFExQhgSAyQoKx/9oACAEBAAE/AKu5oEi2A3meKOXf8cfgV9Xe2kEgyOeCKsZSXAqs0XP91z7+wC3MSCzeg/RbuG06uO8T6a5kNkOOu0CpUXWQMdo4kQRPQihPd9tH+4jXIw0yDukq0RNHFu2/iOVku0pfx7foHt91MttbMyN7njqQDo3BPkdWEqRJEjkV8QOV2LVq2xBBlkoq+y181CrgHn1nXHffZQ+UH8aEwCaEoJP9qzbe+ySOUO7XCuxca2f5CR6jS477H7bftPWt7+NvekdzbWXYyo60rvtXtHgda3v4j71Yd/qLPaPJ6+Vb38be9f/EACYRAAECBAQHAQAAAAAAAAAAAAECAwAEEBIREzFSITNBQlFhgXL/2gAIAQIBAT8AffKDYjXqYznd5hhwuI46ijjOOaSfaYUm232Ik9F/KKQFRMN2LHgiJVdrmG6s32fYa5iP0Kf/xAAmEQABAgQFBAMAAAAAAAAAAAABAgMAEBESBBNCUoEhMTNhUXFy/9oACAEDAQE/AGGAoXK4EZLWwQ+2G19Oxk28RlhI9GEqur9xi9HMm3C2qtAfRhhy9J+axiUXIrtnhdfEOeNf5Mv/2Q==',
+            name: '博士',
+            text: '马东什么？',
+        },
+        {
+            avatar:
+                'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIADIAMgMBIgACEQEDEQH/xAAxAAACAgMBAAAAAAAAAAAAAAAABgQFAQIHAwEBAAMBAAAAAAAAAAAAAAAAAwABAgT/2gAMAwEAAhADEAAAAI7CsPnN1VeZ0okpTbSWASKzwmMPRy3PuuWhpv4KvQ7pcJYTUb+hdLQYWJoaVU+RU3jcXiaoegAhWOAPeeaBd1wGtf/EAC4QAAIBAwIEBAUFAQAAAAAAAAECAwAEEQUhBhASMRMiQWEUI3KBoSAzQlFSkv/aAAgBAQABPwDTxidHHbdTyZGjdkcYYelBGKM4HlUgH7/osXInRfQsK0q18abxGHkj/JrV0KXrEfzUGtLiE0F1G48r4GfcVJDJFI0TbMp52W91D9VXt42mWQCu0QUqHZQC7SyDIRA22QO5NXkFyLeFpnWRggYsMZw/+ioAPsRVlOtrpsshx+6d2OFGw3J/oVK897YR6nbfORCTkp0OVQ7lRk5Aq5gMZSVR8qVepfbPpy0jDSRyEZxIg/6JrjKJytlEEJ63uJD7ttXB6Tn41bhW8Mwxxjqzt3OBWrx+Bw9fQsRvIgBzjYutcP3F8upWVmZZltvjFPQW22BqeAJpHh+kWyeyhsL+KXS9RcB1WLpYZGSc4NcKwxTrcRy+qrj2IJIqe3S5AEsSOAcgMobB+9Lb9KhVAAHYCntRIjI6hkYYZWGQRUGm2ltMssVsiSKCAVGMZqWFZ4fDY4XYn7ULaEgF182N/Me9cIuI3kY9gFodLAEHINFgKDKdqwK1LVotOMSsnWz5JAPYUeJZyTiKMVwv2n+la08npcZOBjke3LVWZtRuizE4kI5f/8QAIBEBAAIBAgcAAAAAAAAAAAAAAQARAwIQEiAhMTJBcf/aAAgBAgEBPwDL5HzkadfX0RDjmTSUJtks1MqWpVypk7uxt//EACARAQABAwMFAAAAAAAAAAAAAAEAAhEhAxATEiIxYXH/2gAIAQMBAT8A0m1L9l+2++Sg9sF45p1N7M6iUJYwM5GYW4ZmZT4Njb//2Q==',
+            name: '柚子',
+            text: '什么冬梅？',
+        },
+    ])
+
+
+    const barrage = ref([
+        '草',
+        '高技术力',
+        '汤姆逊波纹疾走…啊哒哒哒哒哒哒……',
+        '此曲一出，非死即伤',
+        '这播放量不应该啊',
+        '牛皮！',
+        '全  文  背  诵',
+        'ohhhhhhh',
+        'NICE',
+        '草这死亡姿势',
+        '日常迫害团长',
+        '溜了溜了',
+        '火钳刘明',
+
+    ])
+
     return {
-      // 系统主题
-      siteTheme: "light",
-      siteThemeAuto: true,
-      // 新闻类别
-      newsArr: [
-        {
-          label: "哔哩哔哩",
-          value: "bilibili",
-          order: 0,
-          show: true,
-        },
-        {
-          label: "微博",
-          value: "weibo",
-          order: 1,
-          show: true,
-        },
-        {
-          label: "抖音",
-          value: "douyin",
-          order: 2,
-          show: true,
-        },
-        {
-          label: "知乎",
-          value: "zhihu",
-          order: 3,
-          show: true,
-        },
-        {
-          label: "36氪",
-          value: "36kr",
-          order: 4,
-          show: true,
-        },
-        {
-          label: "百度",
-          value: "baidu",
-          order: 5,
-          show: true,
-        },
-        {
-          label: "少数派",
-          value: "sspai",
-          order: 6,
-          show: true,
-        },
-        {
-          label: "IT之家",
-          value: "ithome",
-          order: 7,
-          show: true,
-        },
-        {
-          label: "澎湃新闻",
-          value: "thepaper",
-          order: 8,
-          show: true,
-        },
-        {
-          label: "今日头条",
-          value: "toutiao",
-          order: 9,
-          show: true,
-        },
-        {
-          label: "百度贴吧",
-          value: "tieba",
-          order: 10,
-          show: true,
-        },
-        {
-          label: "稀土掘金",
-          value: "juejin",
-          order: 11,
-          show: true,
-        },
-        {
-          label: "腾讯新闻",
-          value: "newsqq",
-          order: 12,
-          show: true,
-        },
-        {
-          label: "豆瓣新片榜",
-          value: "douban_new",
-          order: 13,
-          show: true
-        }
-      ],
-      // 链接跳转方式
-      linkOpenType: "open",
-      // 页头固定
-      headerFixed: true,
-      // 时间数据
-      timeData: null,
-    };
-  },
-  getters: {},
-  actions: {
-    // 更改系统主题
-    setSiteTheme(val) {
-      $message.info(`已切换至${val === "dark" ? "深色模式" : "浅色模式"}`, {
-        showIcon: false,
-      });
-      this.siteTheme = val;
-      this.siteThemeAuto = false;
-    },
-  },
-  persist: [
-    {
-      storage: localStorage,
-      paths: [
-        "siteTheme",
-        "siteThemeAuto",
-        "newsArr",
-        "linkOpenType",
-        "headerFixed",
-      ],
-    },
-  ],
-});
+        barrage,
+        customBarrage,
+    }
+})
