@@ -1,7 +1,33 @@
-# Vue 3 + Vite
+## Daisies
+Developed By Vue3, DaisyUI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+- [ ] 接入后端api
+- [x] 移动端适配
+- [x] 简单路由
+- [x] 黑暗模式适配
+- [ ] 添加动画
+- [ ] 优化包体积
+- [ ] 重构主页设计
+- [ ] 重构状态管理
+- [ ] 重构样式
+- [ ] 重构权限逻辑
+- [ ] ...
 
-## Recommended IDE Setup
+### Demo
+>https://simpleblog-tailwindcss.vercel.app/
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Usage
+```bash
+
+# Install dependencies
+$ yarn
+
+# Compiles and hot-reloads for development
+$ yarn dev
+
+# Compiles and minifies for production
+$ yarn build
+
+# Vite preview
+$ yarn preview
+```
