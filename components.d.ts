@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AvatarFallback: typeof import('radix-vue')['AvatarFallback']
+    AvatarRoot: typeof import('radix-vue')['AvatarRoot']
     PaginationEllipsis: typeof import('radix-vue')['PaginationEllipsis']
     PaginationFirst: typeof import('radix-vue')['PaginationFirst']
     PaginationLast: typeof import('radix-vue')['PaginationLast']

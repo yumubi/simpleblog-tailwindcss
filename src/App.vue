@@ -9,7 +9,10 @@ import {
 import {ref} from "vue";
 import avatarImg from "@/assets/miku.png"
 import {Icon} from "@iconify/vue";
+import {storeToRefs} from "pinia";
 const hoverState = ref(false)
+
+
 </script>
 
 <template>
